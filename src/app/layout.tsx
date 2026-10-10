@@ -1,39 +1,37 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Space_Grotesk, Inter } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
   subsets: ["latin"],
+  weight: ["500", "700"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  display: "swap",
 });
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#07090e",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#F7F7F5" },
+    { media: "(prefers-color-scheme: dark)", color: "#090A0C" },
+  ],
 };
 
 export const metadata: Metadata = {
-  title: "Sonic Technologies | FPGA Gas & Fire Automation • SCADA RTU • UAE",
+  title: "Sonic Technologies | Gas, Fire & SCADA Automation Engineering",
   description:
-    "Sonic Technologies is a premier UAE automation engineering house specializing in FPGA-embedded gas & fire control panels, open-path laser gas detection, and SCADA RTUs. Protecting landmark UAE infrastructure including Etihad Towers and The Royal Atlantis.",
-  keywords: [
-    "Sonic Technologies",
-    "Gas Detection UAE",
-    "Fire Control Panels Abu Dhabi",
-    "SCADA RTU Dubai",
-    "Open-Path Laser Gas Detector",
-    "Pipe-in-Pipe Gas Detector",
-    "FPGA Embedded Firmware",
-    "Boreal Laser UAE",
-    "Etihad Towers Safety Systems",
-  ],
-  authors: [{ name: "Sonic Technologies Engineering" }],
+    "Sonic Technologies is a UAE engineering house specializing in FPGA embedded firmware, gas & fire detection systems, and industrial SCADA deployments.",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
@@ -44,10 +42,48 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased scroll-smooth`}
+      data-theme="light"
+      suppressHydrationWarning
+      className={`${spaceGrotesk.variable} ${inter.variable}`}
     >
-      <body className="min-h-full flex flex-col bg-[#07090e] text-zinc-100 selection:bg-red-600 selection:text-white">
+      <head>
+        {/* Anti-flash inline script to establish theme before first paint */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){
+              try {
+                var stored = localStorage.getItem('sonic_theme');
+                if (stored === 'dark' || stored === 'light') {
+                  document.documentElement.setAttribute('data-theme', stored);
+                } else {
+                  document.documentElement.setAttribute('data-theme', 'light');
+                }
+              } catch(e) {
+                document.documentElement.setAttribute('data-theme', 'light');
+              }
+            })();`,
+          }}
+        />
+      </head>
+      <body className="preload">
+        {/* Skip to main content for keyboard accessibility */}
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-white focus:text-black focus:border focus:border-black focus:outline-none"
+        >
+          Skip to main content
+        </a>
         {children}
+        {/* Remove preload class after hydration to enable transitions */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.addEventListener('DOMContentLoaded', function(){
+              setTimeout(function(){
+                document.body.classList.remove('preload');
+              }, 50);
+            });`,
+          }}
+        />
       </body>
     </html>
   );
