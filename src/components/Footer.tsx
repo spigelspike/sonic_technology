@@ -1,102 +1,108 @@
-'use client';
-
 import React from 'react';
+import { SafetyScrollCTA } from './SafetyScrollCTA';
 
-interface FooterProps {
-  onOpenRfq: () => void;
-}
-
-export const Footer: React.FC<FooterProps> = ({ onOpenRfq }) => {
+export const Footer: React.FC = () => {
   return (
-    <footer className="bg-[#05070a] border-t border-white/10 text-zinc-400 font-mono text-xs">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-white/10">
-          
-          {/* Brand Col */}
-          <div className="space-y-4">
-            <div className="flex items-center gap-3">
-              <img
-                src="/assets/logo.png"
-                alt="Sonic Technologies"
-                className="h-9 w-auto object-contain brightness-110"
-              />
-            </div>
+    <>
+      {/* 3D Scroll-Animated Safety System iPad CTA */}
+      <SafetyScrollCTA />
 
-            <p className="text-zinc-400 text-xs leading-relaxed">
-              Automation technology company specializing in manufacturing FPGA embedded software, rigid addressable gas and fire control panels, and SCADA remote thermal unit telemetry in the United Arab Emirates.
-            </p>
+      {/* Modern Industrial Footer */}
+      <footer className="py-14 bg-[var(--bg)] text-[var(--text-2)] transition-colors text-xs font-mono-tech border-t border-[var(--border)]" role="contentinfo">
+        <div className="container-1280">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-[var(--border)]">
+            
+            {/* Column 1: Brand & Identity */}
+            <div className="md:col-span-5 space-y-4">
+              <div className="flex items-center gap-3">
+                <img
+                  src="/assets/logo.png"
+                  alt="Sonic Technologies"
+                  width={178}
+                  height={80}
+                  className="h-10 w-auto object-contain theme-light-logo"
+                />
+                <img
+                  src="/assets/logo_white.png"
+                  alt="Sonic Technologies"
+                  width={178}
+                  height={80}
+                  className="h-10 w-auto object-contain theme-dark-logo"
+                />
+              </div>
 
-            <div className="text-zinc-300">
-              <span className="text-red-500">📍</span> Headquartered in the UAE
-            </div>
-          </div>
+              <p className="text-xs text-[var(--text-2)] leading-relaxed max-w-[42ch]">
+                UAE-headquartered automation and functional safety engineering company. Specialists in FPGA gate-array design, industrial gas &amp; fire detection, and supervisory SCADA systems.
+              </p>
 
-          {/* Nav Col 1 */}
-          <div>
-            <h4 className="text-xs uppercase tracking-wider text-white font-bold mb-4">
-              Navigation
-            </h4>
-            <ul className="space-y-2.5 text-zinc-400">
-              <li><a href="#top" className="hover:text-red-400 transition-colors">Home</a></li>
-              <li><a href="#about" className="hover:text-red-400 transition-colors">About Us</a></li>
-              <li><a href="#gas-projects" className="hover:text-red-400 transition-colors">Gas Panel Projects</a></li>
-              <li><a href="#mission" className="hover:text-red-400 transition-colors">Engineering Verticals</a></li>
-              <li><a href="#ai-supervision" className="hover:text-red-400 transition-colors">AI Supervision Layer</a></li>
-            </ul>
-          </div>
-
-          {/* Nav Col 2 */}
-          <div>
-            <h4 className="text-xs uppercase tracking-wider text-white font-bold mb-4">
-              Selected Projects
-            </h4>
-            <ul className="space-y-2.5 text-zinc-400">
-              <li><a href="#gas-projects" className="hover:text-red-400 transition-colors">Etihad Towers Abu Dhabi</a></li>
-              <li><a href="#gas-projects" className="hover:text-red-400 transition-colors">The Royal Atlantis Dubai</a></li>
-              <li><a href="#gas-projects" className="hover:text-red-400 transition-colors">Waldorf Astoria Palm</a></li>
-              <li><a href="#gas-projects" className="hover:text-red-400 transition-colors">Yas Island Rotana Abu Dhabi</a></li>
-            </ul>
-          </div>
-
-          {/* Nav Col 3: Contact */}
-          <div>
-            <h4 className="text-xs uppercase tracking-wider text-white font-bold mb-4">
-              Contact Us
-            </h4>
-            <div className="space-y-3 text-zinc-400">
-              <p>For project enquiries, technical consultations, or partnership opportunities:</p>
-              <a
-                href="mailto:gm@sonictech.ae"
-                className="inline-block text-red-400 hover:text-red-300 font-bold"
-              >
-                gm@sonictech.ae
-              </a>
-              <div className="pt-2">
-                <button
-                  onClick={onOpenRfq}
-                  className="px-5 py-2.5 rounded-full text-xs font-bold text-white bg-red-600 hover:bg-red-500 transition-colors cursor-pointer"
-                >
-                  Request Consultation →
-                </button>
+              <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-[var(--surface-2)] border border-[var(--border)] text-[10px]">
+                <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                <span>Supervisory Systems Status: 99.98% Operational</span>
               </div>
             </div>
+
+            {/* Column 2: Engineering Verticals */}
+            <div className="md:col-span-3 space-y-3">
+              <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--text)]">
+                Engineering Disciplines
+              </div>
+              <ul className="space-y-2 text-xs">
+                <li><a href="#applications" className="hover:text-[var(--text)] transition-colors">Gas &amp; Flame Detection</a></li>
+                <li><a href="#applications" className="hover:text-[var(--text)] transition-colors">SCADA &amp; RTU Supervision</a></li>
+                <li><a href="#applications" className="hover:text-[var(--text)] transition-colors">FPGA Embedded Firmware</a></li>
+                <li><a href="#applications" className="hover:text-[var(--text)] transition-colors">IoT &amp; Remote Monitoring</a></li>
+                <li><a href="#applications" className="hover:text-[var(--text)] transition-colors">Industrial Control Panels</a></li>
+              </ul>
+            </div>
+
+            {/* Column 3: Quick Navigation */}
+            <div className="md:col-span-2 space-y-3">
+              <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--text)]">
+                Navigation
+              </div>
+              <ul className="space-y-2 text-xs">
+                <li><a href="/about" className="hover:text-[var(--text)] transition-colors">About Us</a></li>
+                <li><a href="/projects" className="hover:text-[var(--text)] transition-colors">Landmark Projects</a></li>
+                <li><a href="/applications" className="hover:text-[var(--text)] transition-colors">Engineered Applications</a></li>
+                <li><a href="mailto:gm@sonictech.ae" className="hover:text-[var(--text)] transition-colors">Contact Engineering</a></li>
+              </ul>
+            </div>
+
+            {/* Column 4: Contact & Direct Desk */}
+            <div className="md:col-span-2 space-y-3">
+              <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--text)]">
+                Direct Contact
+              </div>
+              <div className="space-y-2 text-xs">
+                <div>
+                  <div className="text-[10px] uppercase text-[var(--text-2)] opacity-75">Direct Inquiries</div>
+                  <a href="mailto:gm@sonictech.ae" className="text-[var(--accent-text)] font-semibold hover:underline">
+                    gm@sonictech.ae
+                  </a>
+                </div>
+                <div>
+                  <div className="text-[10px] uppercase text-[var(--text-2)] opacity-75">Location</div>
+                  <div className="text-[var(--text)]">Abu Dhabi &amp; Dubai, UAE</div>
+                </div>
+              </div>
+            </div>
+
           </div>
 
+          {/* Bottom Copyright & Top Jump */}
+          <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-[var(--text-2)]">
+            <div>
+              &copy; 2026 Sonic Technologies. UAE. All rights reserved.
+            </div>
+            <div className="flex items-center gap-6">
+              <a href="#top" className="hover:text-[var(--text)] transition-colors flex items-center gap-1 font-semibold">
+                <span>Back to Top</span>
+                <span>&uarr;</span>
+              </a>
+            </div>
+          </div>
         </div>
-
-        {/* Bottom Bar */}
-        <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-zinc-400">
-          <div>
-            © 2026 SONIC TECHNOLOGIES. All rights reserved. The Smartest Way Forward.
-          </div>
-          <div>
-            <a href="#top" className="text-zinc-400 hover:text-white transition-colors">
-              Back to Top ↑
-            </a>
-          </div>
-        </div>
-
-      </div>
-    </footer>
+      </footer>
+    </>
   );
 };

@@ -12,11 +12,13 @@ export const ThemeToggle: React.FC = () => {
       const current = document.documentElement.getAttribute('data-theme') as 'light' | 'dark' | null;
       if (current === 'dark' || current === 'light') {
         setTheme(current);
+        document.documentElement.classList.toggle('dark', current === 'dark');
       } else {
         const stored = localStorage.getItem('sonic_theme') as 'light' | 'dark' | null;
         if (stored) {
           setTheme(stored);
           document.documentElement.setAttribute('data-theme', stored);
+          document.documentElement.classList.toggle('dark', stored === 'dark');
         }
       }
     } catch {
@@ -29,6 +31,7 @@ export const ThemeToggle: React.FC = () => {
     setTheme(nextTheme);
     try {
       document.documentElement.setAttribute('data-theme', nextTheme);
+      document.documentElement.classList.toggle('dark', nextTheme === 'dark');
       localStorage.setItem('sonic_theme', nextTheme);
       
       // Update theme-color meta tag
