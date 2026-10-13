@@ -45,7 +45,11 @@ export const AboutCta: React.FC = () => {
           <div className="flex flex-wrap items-center gap-4 sm:gap-6 pt-2">
             <a
               href={mailtoInquiry}
-              className="inline-flex items-center justify-center gap-2 min-h-[44px] px-6 py-3 rounded-[4px] text-sm font-semibold text-white bg-[var(--accent)] hover:bg-[var(--accent-hover)] transition-colors focus-visible:outline-2 focus-visible:outline-[var(--focus-ring)] shadow-xs"
+              onClick={(e) => {
+                e.preventDefault();
+                window.location.href = mailtoInquiry;
+              }}
+              className="inline-flex items-center justify-center gap-2 min-h-[44px] px-6 py-3 rounded-[4px] text-sm font-semibold text-white bg-[var(--accent)] hover:bg-[var(--accent-hover)] transition-colors focus-visible:outline-2 focus-visible:outline-[var(--focus-ring)] shadow-xs cursor-pointer"
             >
               <span>Contact Engineering Desk</span>
               <ArrowRight className="w-4 h-4" />

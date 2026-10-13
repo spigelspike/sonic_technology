@@ -47,7 +47,11 @@ export const SafetyScrollCTA: React.FC = () => {
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <a
                 href="mailto:gm@sonictech.ae?subject=Project%20Enquiry%20-%20Sonic%20Technologies"
-                className="btn-primary text-sm shadow-md"
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.location.href = 'mailto:gm@sonictech.ae?subject=Project%20Enquiry%20-%20Sonic%20Technologies';
+                }}
+                className="btn-primary text-sm shadow-md cursor-pointer inline-flex items-center gap-2"
               >
                 <span>Contact Us</span>
                 <span>→</span>

@@ -114,8 +114,12 @@ export const Navbar: React.FC = () => {
 
           <a
             href="mailto:gm@sonictech.ae?subject=Project%20Enquiry%20-%20Sonic%20Technologies"
+            onClick={(e) => {
+              e.preventDefault();
+              window.location.href = 'mailto:gm@sonictech.ae?subject=Project%20Enquiry%20-%20Sonic%20Technologies';
+            }}
             id="nav-contact-cta"
-            className="inline-flex items-center justify-center gap-1.5 px-3 sm:px-5 h-9 sm:h-11 rounded-[4px] text-xs sm:text-sm font-semibold text-white bg-[var(--accent)] hover:bg-[var(--accent-hover)] transition-colors focus-visible:outline-2 focus-visible:outline-[var(--focus-ring)] focus-visible:outline-offset-2 shrink-0 shadow-xs"
+            className="inline-flex items-center justify-center gap-1.5 px-3 sm:px-5 h-9 sm:h-11 rounded-[4px] text-xs sm:text-sm font-semibold text-white bg-[var(--accent)] hover:bg-[var(--accent-hover)] transition-colors focus-visible:outline-2 focus-visible:outline-[var(--focus-ring)] focus-visible:outline-offset-2 shrink-0 shadow-xs cursor-pointer"
           >
             <span>Contact Us</span>
             <ArrowRight className="w-3.5 h-3.5" />
@@ -211,8 +215,12 @@ export const Navbar: React.FC = () => {
 
             <a
               href="mailto:gm@sonictech.ae?subject=Project%20Enquiry%20-%20Sonic%20Technologies"
-              onClick={() => setMobileMenuOpen(false)}
-              className="min-h-[44px] flex items-center justify-center w-full px-4 rounded-[4px] text-sm font-semibold text-white bg-[var(--accent)] hover:bg-[var(--accent-hover)] transition-colors"
+              onClick={(e) => {
+                e.preventDefault();
+                setMobileMenuOpen(false);
+                window.location.href = 'mailto:gm@sonictech.ae?subject=Project%20Enquiry%20-%20Sonic%20Technologies';
+              }}
+              className="min-h-[44px] flex items-center justify-center w-full px-4 rounded-[4px] text-sm font-semibold text-white bg-[var(--accent)] hover:bg-[var(--accent-hover)] transition-colors cursor-pointer"
             >
               Contact Engineering Desk
             </a>
