@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { Mail, ArrowRight } from 'lucide-react';
 import { ContainerScroll } from '@/components/ui/container-scroll-animation';
 
 export const SafetyScrollCTA: React.FC = () => {
@@ -43,7 +44,7 @@ export const SafetyScrollCTA: React.FC = () => {
               For project tenders, technical datasheets, site hazard surveys, or functional safety evaluations, connect with our UAE engineering team.
             </p>
 
-            {/* Original CTA Buttons */}
+            {/* CTA Buttons */}
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <a
                 href="mailto:gm@sonictech.ae?subject=Project%20Enquiry%20-%20Sonic%20Technologies"
@@ -51,10 +52,11 @@ export const SafetyScrollCTA: React.FC = () => {
                   e.preventDefault();
                   window.location.href = 'mailto:gm@sonictech.ae?subject=Project%20Enquiry%20-%20Sonic%20Technologies';
                 }}
-                className="btn-primary text-sm shadow-md cursor-pointer inline-flex items-center gap-2"
+                className="btn-primary text-sm shadow-md cursor-pointer inline-flex items-center gap-2 font-mono tracking-tight"
               >
-                <span>Contact Us</span>
-                <span>→</span>
+                <Mail className="w-4 h-4 shrink-0" />
+                <span>gm@sonictech.ae</span>
+                <ArrowRight className="w-4 h-4 shrink-0" />
               </a>
 
               <a
@@ -65,17 +67,10 @@ export const SafetyScrollCTA: React.FC = () => {
               </a>
             </div>
 
-            {/* Direct Engineering Desk Contact Info (Clear for Desktop Viewers) */}
+            {/* Direct Engineering Desk Location */}
             <div className="mt-6 flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-xs font-mono text-[var(--text-2)]">
               <span>Direct Desk:</span>
-              <a
-                href="mailto:gm@sonictech.ae?subject=Project%20Enquiry%20-%20Sonic%20Technologies"
-                className="text-[var(--accent-text)] font-semibold hover:underline"
-              >
-                gm@sonictech.ae
-              </a>
-              <span className="opacity-40">·</span>
-              <span>Abu Dhabi &amp; Dubai, UAE</span>
+              <span className="text-[var(--text)] font-semibold">Abu Dhabi &amp; Dubai, UAE</span>
             </div>
           </div>
 
