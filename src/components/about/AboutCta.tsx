@@ -9,7 +9,7 @@ export const AboutCta: React.FC = () => {
     'mailto:gm@sonictech.ae?subject=Site%20Walkdown%20&%20Specification%20Inquiry%20-%20Sonic%20Technologies&body=Sonic%20Technologies%20Engineering%20Desk,%0A%0AWe%20would%20like%20to%20arrange%20a%20site%20walkdown%20and%20technical%20specification%20consultation:%0A%0AFacility%20Type:%20%0ALocation%20(Abu%20Dhabi%20/%20Dubai):%20%0ATarget%20Hazards%20(Toxic%20/%20Flammable%20Gas%20/%20Flame):%20%0AEngineering%20Scope%20(New%20Build%20/%20Retrofit%20/%20SCADA):%20%0A%0ACompany:%20%0AName:%20%0APhone:%20';
 
   return (
-    <section className="relative overflow-hidden w-full border-b border-[var(--border)] bg-[var(--bg)] transition-colors py-16 sm:py-24 lg:py-32">
+    <section id="contact" className="scroll-mt-20 relative overflow-hidden w-full border-b border-[var(--border)] bg-[var(--bg)] transition-colors py-16 sm:py-24 lg:py-32">
       {/* Background Image: Industrial gas storage tank positioned on the right and fading to the left like main page */}
       <div className="absolute inset-y-0 right-0 w-full lg:w-[55%] pointer-events-none overflow-hidden">
         <Image
@@ -62,6 +62,16 @@ export const AboutCta: React.FC = () => {
               <span>Explore projects portfolio</span>
               <ArrowRight className="w-4 h-4 text-[var(--text-2)]" />
             </a>
+          </div>
+
+          {/* Direct Desk Line for Desktop */}
+          <div className="pt-2 text-xs font-mono text-[var(--text-2)] flex flex-wrap items-center gap-2">
+            <span>Engineering Desk:</span>
+            <a href="mailto:gm@sonictech.ae" className="text-[var(--accent-text)] font-semibold hover:underline">
+              gm@sonictech.ae
+            </a>
+            <span className="opacity-40">·</span>
+            <span>Abu Dhabi &amp; Dubai, UAE</span>
           </div>
 
         </div>

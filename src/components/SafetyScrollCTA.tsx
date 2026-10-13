@@ -5,7 +5,7 @@ import { ContainerScroll } from '@/components/ui/container-scroll-animation';
 
 export const SafetyScrollCTA: React.FC = () => {
   return (
-    <section id="contact" className="relative overflow-hidden bg-[var(--surface-2)] border-b border-[var(--border)] transition-colors">
+    <section id="contact" className="scroll-mt-20 relative overflow-hidden bg-[var(--surface-2)] border-b border-[var(--border)] transition-colors">
       {/* Subtle background ambient mesh */}
       <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-[var(--accent)] rounded-full blur-[140px] opacity-[0.04] pointer-events-none" />
       <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-emerald-500 rounded-full blur-[140px] opacity-[0.03] pointer-events-none" />
@@ -63,6 +63,19 @@ export const SafetyScrollCTA: React.FC = () => {
               >
                 View Selected Projects
               </a>
+            </div>
+
+            {/* Direct Engineering Desk Contact Info (Clear for Desktop Viewers) */}
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-xs font-mono text-[var(--text-2)]">
+              <span>Direct Desk:</span>
+              <a
+                href="mailto:gm@sonictech.ae?subject=Project%20Enquiry%20-%20Sonic%20Technologies"
+                className="text-[var(--accent-text)] font-semibold hover:underline"
+              >
+                gm@sonictech.ae
+              </a>
+              <span className="opacity-40">·</span>
+              <span>Abu Dhabi &amp; Dubai, UAE</span>
             </div>
           </div>
 

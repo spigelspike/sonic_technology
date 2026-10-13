@@ -660,7 +660,8 @@ export const OpenPathShowcase: React.FC = () => {
           5. DIRECT ENGINEERING CONSULTATION SECTION (RESTORED OLD VERSION)
           High-impact centered consultation section per user request.
           ========================================================================= */}
-      <section id="consultation" className="py-12 sm:py-20 border-b border-[var(--border)] bg-[var(--surface-2)]">
+      <section id="contact" className="scroll-mt-20 py-12 sm:py-20 border-b border-[var(--border)] bg-[var(--surface-2)]">
+        <div id="consultation" className="scroll-mt-20" />
         <div className="container-1280 text-center max-w-3xl mx-auto space-y-5 sm:space-y-6">
           <div className="inline-flex items-center gap-2 text-xs font-mono font-bold tracking-widest uppercase text-[var(--accent)]">
             <Radio className="w-4 h-4 text-[var(--accent)]" />
@@ -689,6 +690,16 @@ export const OpenPathShowcase: React.FC = () => {
             >
               <span>View Landmark UAE Projects →</span>
             </a>
+          </div>
+
+          {/* Direct Desk Line for Desktop */}
+          <div className="pt-2 text-xs font-mono text-[var(--text-2)] flex flex-wrap items-center justify-center gap-2">
+            <span>Engineering Desk:</span>
+            <a href="mailto:gm@sonictech.ae" className="text-[var(--accent-text)] font-semibold hover:underline">
+              gm@sonictech.ae
+            </a>
+            <span className="opacity-40">·</span>
+            <span>Abu Dhabi &amp; Dubai, UAE</span>
           </div>
         </div>
       </section>

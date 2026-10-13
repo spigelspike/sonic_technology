@@ -41,6 +41,33 @@ export const Navbar: React.FC = () => {
 
   const isAboutActive = pathname === '/about' || pathname === '/about-us';
 
+  const handleContactClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+
+    // 1. Mobile & Touch Screen: directly trigger mail client to gm@sonictech.ae
+    const isMobile =
+      typeof window !== 'undefined' &&
+      (window.innerWidth < 1024 ||
+        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
+
+    if (isMobile) {
+      window.location.href = 'mailto:gm@sonictech.ae?subject=Project%20Enquiry%20-%20Sonic%20Technologies';
+      return;
+    }
+
+    // 2. Desktop: Smoothly scroll down to contact section
+    const contactElem =
+      document.getElementById('contact') ||
+      document.getElementById('consultation');
+
+    if (contactElem) {
+      contactElem.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      window.history.pushState(null, '', '#contact');
+    } else {
+      window.location.href = '/#contact';
+    }
+  };
+
   return (
     <header className="sticky top-0 z-40 w-full bg-[var(--bg)] border-b border-[var(--border)] transition-colors">
       <div className="container-1280 h-20 flex items-center justify-between">
@@ -113,11 +140,8 @@ export const Navbar: React.FC = () => {
           <ThemeToggle />
 
           <a
-            href="mailto:gm@sonictech.ae?subject=Project%20Enquiry%20-%20Sonic%20Technologies"
-            onClick={(e) => {
-              e.preventDefault();
-              window.location.href = 'mailto:gm@sonictech.ae?subject=Project%20Enquiry%20-%20Sonic%20Technologies';
-            }}
+            href="#contact"
+            onClick={handleContactClick}
             id="nav-contact-cta"
             className="inline-flex items-center justify-center gap-1.5 px-3 sm:px-5 h-9 sm:h-11 rounded-[4px] text-xs sm:text-sm font-semibold text-white bg-[var(--accent)] hover:bg-[var(--accent-hover)] transition-colors focus-visible:outline-2 focus-visible:outline-[var(--focus-ring)] focus-visible:outline-offset-2 shrink-0 shadow-xs cursor-pointer"
           >
